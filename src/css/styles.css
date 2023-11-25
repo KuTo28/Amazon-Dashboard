@@ -1,0 +1,142 @@
+body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  background-color: #eee;
+  margin: 0;
+  background-image: url(../img/fondo.jpg);
+  background-size: 100% auto; /* Ajusta el ancho al 100% y el alto automáticamente */
+  background-repeat: repeat-y; /* Repetir solo verticalmente */
+}
+
+.background-overlay {
+  position: fixed; /* Cambia 'absolute' a 'fixed' para que se mantenga fijo en la ventana */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Ajusta la altura al 100% del viewport height (vh) */
+  background-color: rgba(255, 255, 255, 0.9); /* Color de fondo difuminado (blanco con transparencia). */
+  filter: blur(5px); /* Ajusta el valor del desenfoque según la cantidad de desenfoque que desees. */
+  z-index: -1; /* Coloca la capa detrás del contenido. */
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; /* Esto distribuirá los gráficos de manera equitativa */
+}
+
+.grafico {
+  width: 45%; /* O el ancho deseado para adaptarse al contenedor */
+  margin: 10px; /* Márgenes entre los gráficos */
+  /* Otras propiedades de estilo para los gráficos */
+}
+
+@media (max-width: 768px) {
+  .grafico {
+      width: 100%; /* En pantallas más pequeñas, ocuparán el ancho completo */
+  }
+}
+
+
+.curtain-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.curtain-panel {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Estilos generales de las cortinas */
+.curtain-panel .curtain {
+  width: 100%;
+  position: relative;
+  transition: transform 0.5s ease-out;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.curtain-panel .curtain:before {
+  content: attr(data-title);
+  text-align: center;
+  width: 200%;
+  position: absolute;
+  top: 50%;
+  line-height: 0;
+  font-size: 1.1em;
+  text-shadow: 1px 1px 3px #ccc;
+}
+
+.curtain-panel .curtain:after {
+  content: '';
+  background-size: 20px 20px;
+  background-image: radial-gradient(circle at 10px -5px, rgba(0, 0, 0, 0) 12px, #fff 13px);
+  display: block;
+  height: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* Estilos de la cortina izquierda */
+.curtain-panel .left-curtain {
+  background-color: orange;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  transition: transform 0.5s ease-out;
+  position: relative;
+  background-image: url(../img/leftCurtain.png);
+  background-size: cover;
+}
+
+.curtain-panel .left-curtain:before {
+  left: 0;
+}
+
+/* Estilos de la cortina derecha */
+.curtain-panel .right-curtain {
+  background-color: orange;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  transition: transform 0.5s ease-out;
+  position: relative;
+  background-image: url(../img/rightCurtain.png);
+  background-size: cover;
+}
+
+.curtain-panel .right-curtain:before {
+  right: 0;
+}
+
+.curtain-trigger {
+  visibility: hidden;
+  position: absolute;
+}
+
+/* Abre la cortina izquierda al hacer clic en el gatillo */
+.curtain-trigger:checked~.left-curtain {
+  transform: translateX(calc(-100%));
+}
+
+/* Abre la cortina derecha al hacer clic en el gatillo */
+.curtain-trigger:checked~.right-curtain {
+  transform: translateX(calc(100%));
+}
+
+/* Mantén las cortinas abiertas por defecto */
+.left-curtain,
+.right-curtain {
+  transform: translateX(0);
+}
