@@ -41,4 +41,4 @@ Para comprobar la accesibilidad de la página así como su rendimiento, hemos us
 ## Video
 
 Hemos creado un video donde mostramos, la estructura de la base de datos, la arquitectura del código utilizado y mostramos el dashboard en la ejecución de la práctica.
-El link del video, lo puedes encontrar en el siguiente enlace, [video](https://www.youtube.com/).
+El link del video, lo puedes encontrar en el siguiente enlace, [video](https://youtu.be/9StQrFi_n1M).
