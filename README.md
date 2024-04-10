@@ -37,8 +37,3 @@ El HTML y CSS se ha usado para estructurar el documento y para el estilo del mis
 Para comprobar la accesibilidad de la página así como su rendimiento, hemos usado [lighthouse](https://web.dev/performance-scoring/). Y este es el resultado:
 
 ![Ligthouse score](src/img/Analisis.PNG)
-
-## Video
-
-Hemos creado un video donde mostramos, la estructura de la base de datos, la arquitectura del código utilizado y mostramos el dashboard en la ejecución de la práctica.
-El link del video, lo puedes encontrar en el siguiente enlace, [video](https://youtu.be/9StQrFi_n1M).
